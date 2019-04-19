@@ -11,3 +11,16 @@ C:\Users\Praslar\Downloads\ChatApp_Server\ChatApp_Server\ChatApp_Client\obj\Debu
 C:\Users\Praslar\Downloads\ChatApp_Server\ChatApp_Server\ChatApp_Client\bin\Debug\MaterialSkin.dll
 C:\Users\Praslar\Downloads\ChatApp_Server\ChatApp_Server\ChatApp_Client\obj\Debug\ChatApp_Client.csproj.CopyComplete
 C:\Users\Praslar\Downloads\ChatApp_Server\ChatApp_Server\ChatApp_Client\obj\Debug\ChatApp_Client.csprojAssemblyReference.cache
+C:\Users\Praslar\Desktop\chatapp\BlaBlo\ChatApp_Server\ChatApp_Client\bin\Debug\ChatApp_Client.exe.config
+C:\Users\Praslar\Desktop\chatapp\BlaBlo\ChatApp_Server\ChatApp_Client\bin\Debug\ChatApp_Client.exe
+C:\Users\Praslar\Desktop\chatapp\BlaBlo\ChatApp_Server\ChatApp_Client\bin\Debug\ChatApp_Client.pdb
+C:\Users\Praslar\Desktop\chatapp\BlaBlo\ChatApp_Server\ChatApp_Client\bin\Debug\MaterialSkin.dll
+C:\Users\Praslar\Desktop\chatapp\BlaBlo\ChatApp_Server\ChatApp_Client\obj\Debug\ChatApp_Client.csprojAssemblyReference.cache
+C:\Users\Praslar\Desktop\chatapp\BlaBlo\ChatApp_Server\ChatApp_Client\obj\Debug\ChatApp_Client.Chat_Client.resources
+C:\Users\Praslar\Desktop\chatapp\BlaBlo\ChatApp_Server\ChatApp_Client\obj\Debug\ChatApp_Client.Login.resources
+C:\Users\Praslar\Desktop\chatapp\BlaBlo\ChatApp_Server\ChatApp_Client\obj\Debug\ChatApp_Client.Properties.Resources.resources
+C:\Users\Praslar\Desktop\chatapp\BlaBlo\ChatApp_Server\ChatApp_Client\obj\Debug\ChatApp_Client.csproj.GenerateResource.cache
+C:\Users\Praslar\Desktop\chatapp\BlaBlo\ChatApp_Server\ChatApp_Client\obj\Debug\ChatApp_Client.csproj.CoreCompileInputs.cache
+C:\Users\Praslar\Desktop\chatapp\BlaBlo\ChatApp_Server\ChatApp_Client\obj\Debug\ChatApp_Client.csproj.CopyComplete
+C:\Users\Praslar\Desktop\chatapp\BlaBlo\ChatApp_Server\ChatApp_Client\obj\Debug\ChatApp_Client.exe
+C:\Users\Praslar\Desktop\chatapp\BlaBlo\ChatApp_Server\ChatApp_Client\obj\Debug\ChatApp_Client.pdb

@@ -31,15 +31,20 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.textBoxMessage = new LollipopTextBox();
-            this.lollipopLabel1 = new LollipopLabel();
-            this.textBoxName = new LollipopLabel();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.buttonSend = new System.Windows.Forms.Button();
             this.buttonImg = new System.Windows.Forms.Button();
             this.buttonfile = new System.Windows.Forms.Button();
             this.buttonFriends = new System.Windows.Forms.Button();
+            this.openFileDialogImg = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialogFile = new System.Windows.Forms.OpenFileDialog();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.textBoxName = new LollipopLabel();
+            this.lollipopLabel1 = new LollipopLabel();
+            this.textBoxMessage = new LollipopTextBox();
             this.statusStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -66,49 +71,6 @@
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 17);
-            // 
-            // textBoxMessage
-            // 
-            this.textBoxMessage.FocusedColor = "#508ef5";
-            this.textBoxMessage.FontColor = "#999999";
-            this.textBoxMessage.IsEnabled = true;
-            this.textBoxMessage.Location = new System.Drawing.Point(12, 517);
-            this.textBoxMessage.MaxLength = 32767;
-            this.textBoxMessage.Multiline = false;
-            this.textBoxMessage.Name = "textBoxMessage";
-            this.textBoxMessage.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.textBoxMessage.ReadOnly = false;
-            this.textBoxMessage.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxMessage.Size = new System.Drawing.Size(353, 24);
-            this.textBoxMessage.TabIndex = 8;
-            this.textBoxMessage.Text = " Nhập tin nhắn...";
-            this.textBoxMessage.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textBoxMessage.UseSystemPasswordChar = false;
-            this.textBoxMessage.Enter += new System.EventHandler(this.textBoxMessage_Enter);
-            // 
-            // lollipopLabel1
-            // 
-            this.lollipopLabel1.AutoSize = true;
-            this.lollipopLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.lollipopLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lollipopLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.lollipopLabel1.Location = new System.Drawing.Point(102, 495);
-            this.lollipopLabel1.Name = "lollipopLabel1";
-            this.lollipopLabel1.Size = new System.Drawing.Size(42, 17);
-            this.lollipopLabel1.TabIndex = 12;
-            this.lollipopLabel1.Text = "User:";
-            // 
-            // textBoxName
-            // 
-            this.textBoxName.AutoSize = true;
-            this.textBoxName.BackColor = System.Drawing.Color.Transparent;
-            this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBoxName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.textBoxName.Location = new System.Drawing.Point(150, 495);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(31, 17);
-            this.textBoxName.TabIndex = 13;
-            this.textBoxName.Text = "abc";
             // 
             // webBrowser1
             // 
@@ -143,6 +105,7 @@
             this.buttonImg.Size = new System.Drawing.Size(21, 20);
             this.buttonImg.TabIndex = 16;
             this.buttonImg.UseVisualStyleBackColor = false;
+            this.buttonImg.Click += new System.EventHandler(this.buttonImg_Click);
             // 
             // buttonfile
             // 
@@ -156,6 +119,7 @@
             this.buttonfile.Size = new System.Drawing.Size(21, 20);
             this.buttonfile.TabIndex = 17;
             this.buttonfile.UseVisualStyleBackColor = false;
+            this.buttonfile.Click += new System.EventHandler(this.buttonfile_Click);
             // 
             // buttonFriends
             // 
@@ -169,6 +133,80 @@
             this.buttonFriends.Size = new System.Drawing.Size(21, 20);
             this.buttonFriends.TabIndex = 18;
             this.buttonFriends.UseVisualStyleBackColor = false;
+            this.buttonFriends.Click += new System.EventHandler(this.buttonFriends_Click);
+            // 
+            // openFileDialogImg
+            // 
+            this.openFileDialogImg.FileName = "openFileDialog1";
+            this.openFileDialogImg.Filter = "IMG|*.png";
+            // 
+            // openFileDialogFile
+            // 
+            this.openFileDialogFile.FileName = "openFileDialog1";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.checkedListBox1);
+            this.groupBox1.ForeColor = System.Drawing.Color.Black;
+            this.groupBox1.Location = new System.Drawing.Point(66, 356);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(145, 131);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Client list";
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(6, 21);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(133, 102);
+            this.checkedListBox1.TabIndex = 0;
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.AutoSize = true;
+            this.textBoxName.BackColor = System.Drawing.Color.Transparent;
+            this.textBoxName.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.textBoxName.Location = new System.Drawing.Point(150, 495);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(34, 18);
+            this.textBoxName.TabIndex = 13;
+            this.textBoxName.Text = "abc";
+            // 
+            // lollipopLabel1
+            // 
+            this.lollipopLabel1.AutoSize = true;
+            this.lollipopLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.lollipopLabel1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lollipopLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.lollipopLabel1.Location = new System.Drawing.Point(102, 495);
+            this.lollipopLabel1.Name = "lollipopLabel1";
+            this.lollipopLabel1.Size = new System.Drawing.Size(48, 18);
+            this.lollipopLabel1.TabIndex = 12;
+            this.lollipopLabel1.Text = "User:";
+            // 
+            // textBoxMessage
+            // 
+            this.textBoxMessage.FocusedColor = "#508ef5";
+            this.textBoxMessage.FontColor = "#999999";
+            this.textBoxMessage.IsEnabled = true;
+            this.textBoxMessage.Location = new System.Drawing.Point(12, 517);
+            this.textBoxMessage.MaxLength = 32767;
+            this.textBoxMessage.Multiline = false;
+            this.textBoxMessage.Name = "textBoxMessage";
+            this.textBoxMessage.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.textBoxMessage.ReadOnly = false;
+            this.textBoxMessage.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBoxMessage.Size = new System.Drawing.Size(353, 24);
+            this.textBoxMessage.TabIndex = 8;
+            this.textBoxMessage.Text = " Nhập tin nhắn...";
+            this.textBoxMessage.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textBoxMessage.UseSystemPasswordChar = false;
+            this.textBoxMessage.Enter += new System.EventHandler(this.textBoxMessage_Enter);
             // 
             // Chat_Client
             // 
@@ -176,6 +214,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 558);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonFriends);
             this.Controls.Add(this.buttonfile);
             this.Controls.Add(this.buttonImg);
@@ -190,8 +229,10 @@
             this.Name = "Chat_Client";
             this.Text = "BlaBlo - Client";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Chat_Client_FormClosing);
+            this.MouseEnter += new System.EventHandler(this.Chat_Client_MouseEnter);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,6 +250,10 @@
         private System.Windows.Forms.Button buttonImg;
         private System.Windows.Forms.Button buttonfile;
         private System.Windows.Forms.Button buttonFriends;
+        private System.Windows.Forms.OpenFileDialog openFileDialogImg;
+        private System.Windows.Forms.OpenFileDialog openFileDialogFile;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }
 

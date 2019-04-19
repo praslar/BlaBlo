@@ -19,6 +19,10 @@ namespace ChatApp_Server
 {
     public partial class Chat_Server : MaterialForm
     {
+        string filename;
+        int index;
+
+        
         public Chat_Server()
         {
             InitializeComponent();
@@ -33,6 +37,7 @@ namespace ChatApp_Server
             KetNoi();
         }
 
+        //Thêm data vào khung chat sau khi nhận đc
         delegate void UpdateTextMessenger(WebBrowser web, string value);
         void UpdateTextData(WebBrowser web, string value)
         {
@@ -46,8 +51,10 @@ namespace ChatApp_Server
                 web.DocumentText = value;
         }
 
+        //Thiết lập server, lập trình Socket
         IPEndPoint Ip;
         Socket Server;
+        //Danh sách kết nối
         List<Socket> clients;
         int clientcount;
         //======================================================================================
@@ -103,11 +110,23 @@ namespace ChatApp_Server
             {
                 while (true)
                 {
-                    byte[] data = new byte[1024 * 5000];
+                    byte[] data = new byte[1024 * 9999];
                     client.Receive(data);
-
                     string message = (string)GomManh(data);
-               
+                    //Client yêu cầu lấy danh sách cách client đang online
+                    if (message.Contains("get_client"))
+                    {
+                            foreach (object name in this.checkedListBoxClientList.Items)
+                            {
+                                foreach (Socket item in clients)
+                                {
+                                    if (item != null)
+                                        item.Send(PhanManh(name + " is online&&"));
+                                }
+
+                            }                                         
+                    }
+                    //Client kết nối thành công
                     if (message.Contains("@@"))
                     {
                         clientcount = clients.Count;
@@ -115,33 +134,35 @@ namespace ChatApp_Server
                         toolStripStatusLabel1.Text = "Số client đang kết nối: " + clientcount;
                         toolStripStatusLabel2.Text = "Client connected!";
                     }
+                    //Client disconnect
                     if (message.Contains("$$"))
                     {
                         foreach (Socket item in clients)
                         {
                             if (item != null && item != client)
                                 item.Send(PhanManh((string)GomManh(data)));
-                        }
-                        //AddMessage(message);
+                        }                       
                         UpdateTextMessenger text1 = UpdateTextData;
                         if (webBrowser1.InvokeRequired)
                             Invoke(text1, webBrowser1, message);
-                        string user = message.Substring(0,5);
-                        foreach  (string name in checkedListBoxClientList.Items)
+                        string user = message.Substring(0, 5);
+                        foreach (string name in checkedListBoxClientList.Items)
                         {
                             if (user.CompareTo(name) == 0)
                             {
                                 checkedListBoxClientList.Items.Remove(name);
                             }
-                        }   
-                        
+                        }
+
                     }
+
+                    //Thêm data vào khung chát đồng thời gửi tin nhắn của client này đến tất cả các client khác trong server
                     foreach (Socket item in clients)
                     {
                         if (item != null && item != client)
                             item.Send(PhanManh((string)GomManh(data)));
                     }
-                    // AddMessage(message);
+
                     UpdateTextMessenger text = UpdateTextData;
                     if (webBrowser1.InvokeRequired)
                         Invoke(text, webBrowser1, message);
@@ -156,6 +177,7 @@ namespace ChatApp_Server
                 client.Close();
             }
         }
+        //Phân mảnh và gom mảnh data để gửi và nhận thông tin
         byte[] PhanManh(object data)
         {
             MemoryStream stream = new MemoryStream();
@@ -164,7 +186,7 @@ namespace ChatApp_Server
             formatter.Serialize(stream, data);
 
             return stream.ToArray();
-        }  
+        }
         object GomManh(byte[] data)
         {
             MemoryStream steam = new MemoryStream(data);
@@ -187,7 +209,7 @@ namespace ChatApp_Server
             if (webBrowser1.Document != null)
             {
                 HtmlElement element = webBrowser1.Document.CreateElement("p");
-                element.InnerText =  "Server: " + textBoxMessage.Text;
+                element.InnerText = "Server: " + textBoxMessage.Text;
                 webBrowser1.Document.Body.AppendChild(element);
             }
             else
@@ -198,10 +220,43 @@ namespace ChatApp_Server
         {
             NgatKetNoi();
         }
-
         private void textBoxMessage_Enter(object sender, EventArgs e)
         {
             textBoxMessage.Text = "";
+        }
+        private void buttonImg_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogImg.ShowDialog() == DialogResult.OK)
+            {
+                //Thêm ảnh vào khung chat sau khi chọn ảnh
+                filename = openFileDialogImg.FileName;
+                index = openFileDialogImg.FilterIndex;
+                toolStripStatusLabel1.Text = "Img path: " + openFileDialogImg.FileName;
+
+                if (webBrowser1.Document != null)
+                {
+                    HtmlElement element = webBrowser1.Document.CreateElement("p");
+                    element.InnerText = string.Empty;
+                    webBrowser1.Document.Body.AppendChild(element);
+
+                    HtmlElement imgElement = webBrowser1.Document.CreateElement("img");
+                    imgElement.SetAttribute("src", filename);
+                    webBrowser1.Document.Body.AppendChild(imgElement);
+
+                }
+                else
+                    webBrowser1.DocumentText = "<img src='" + filename + "'/>";
+                filename = null;
+                MessageBox.Show("Comming soon", "Updating", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void buttonFile_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogFile.ShowDialog() == DialogResult.OK)
+            {
+                toolStripStatusLabel1.Text = "File path: " + openFileDialogFile.FileName;
+                MessageBox.Show("Comming soon", "Updating", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

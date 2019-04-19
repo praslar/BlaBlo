@@ -38,7 +38,9 @@
             this.buttonFile = new System.Windows.Forms.Button();
             this.buttonImg = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.openFileDialogImg = new System.Windows.Forms.OpenFileDialog();
             this.textBoxMessage = new LollipopTextBox();
+            this.openFileDialogFile = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -118,6 +120,7 @@
             this.buttonFile.Size = new System.Drawing.Size(21, 20);
             this.buttonFile.TabIndex = 18;
             this.buttonFile.UseVisualStyleBackColor = false;
+            this.buttonFile.Click += new System.EventHandler(this.buttonFile_Click);
             // 
             // buttonImg
             // 
@@ -131,6 +134,7 @@
             this.buttonImg.Size = new System.Drawing.Size(21, 20);
             this.buttonImg.TabIndex = 17;
             this.buttonImg.UseVisualStyleBackColor = false;
+            this.buttonImg.Click += new System.EventHandler(this.buttonImg_Click);
             // 
             // pictureBox1
             // 
@@ -142,6 +146,11 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            // 
+            // openFileDialogImg
+            // 
+            this.openFileDialogImg.FileName = "openFileDialog1";
+            this.openFileDialogImg.Filter = "PNG|*.png";
             // 
             // textBoxMessage
             // 
@@ -159,6 +168,10 @@
             this.textBoxMessage.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.textBoxMessage.UseSystemPasswordChar = false;
             this.textBoxMessage.Enter += new System.EventHandler(this.textBoxMessage_Enter);
+            // 
+            // openFileDialogFile
+            // 
+            this.openFileDialogFile.FileName = "openFileDialog1";
             // 
             // Chat_Server
             // 
@@ -199,6 +212,8 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button buttonImg;
         private System.Windows.Forms.Button buttonFile;
+        private System.Windows.Forms.OpenFileDialog openFileDialogImg;
+        private System.Windows.Forms.OpenFileDialog openFileDialogFile;
     }
 }
 
